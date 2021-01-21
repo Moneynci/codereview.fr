@@ -1,0 +1,9 @@
+version: "3"
+services:
+  front-end:
+    build:
+      context: web-app
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    stdin_open: true
