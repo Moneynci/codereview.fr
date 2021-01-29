@@ -1,14 +1,15 @@
 version: 0.0
 os: linux
 files:
-  - source: /
-    destination: /
+  - source: .
+    destination: /srv/codereview
 hooks:
-  ApplicationStart:
-    - location: sudo docker-compose up -d
-      timeout: 300
+  BeforeInstall:
+    - location: codereview.fr-main/scripts/prepare.sh
+      location: codereview.fr-main/scripts/stop.sh
+      timeout: 3600
       runas: root
-  ApplicationStop:
-    - location: sudo docker-compose down
-      timeout: 300
+  ApplicationStart:
+    - location: codereview.fr-main/scripts/start.sh
+      timeout: 3600
       runas: root
