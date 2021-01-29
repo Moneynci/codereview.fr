@@ -5,10 +5,10 @@ files:
     destination: /
 hooks:
   ApplicationStart:
-    - location: docker-compose up -d
+    - location: sudo docker-compose up -d
       timeout: 300
       runas: root
   ApplicationStop:
-    - location: docker-compose down
+    - location: sudo docker-compose down
       timeout: 300
       runas: root
